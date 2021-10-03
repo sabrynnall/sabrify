@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- CABEÇALHO DE CONFIGURAÇÃO -->
+    <head>
+        <meta charset="UTF-8">
+        <title>SabriFy</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="./src/css/style.css">
+    </head>
+<!-- CORPO -->
+    <body>
+        <!-- TAG CONTEÚDO MAIS IMPORTANTE -->
+        <main>
+        <!-- MENU DE OPÇÕES -->
+            <aside class="sidebarMenuNavegacao">
+
+                <img src="./src/img/SabriFy.png" alt="">
+                
+                <nav class="menuNavegacao">
+
+                    <ul class="listaLinks">
+                        <li>
+                            <a href="">
+                                <img src="./src/img/icone1.png" alt="Início">
+                                    Início
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./src/img/icone2.png" alt="Buscar">
+                                    Buscar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./src/img/icone3.png" alt="Favoritas">
+                                    Favoritas
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </aside>
+        
+        <!-- SEÇÃO DE MÚSICAS -->
+            <section class="secaoMusicas">
+                <!-- CABEÇALHO DA SEÇÃO DE MÚSICAS -->
+                <header class="cabecalho">
+
+                    <div class="user">
+                        <img src="./src/img/user.png" alt="Sabrynna">
+                        <h2>Sabrynna</h2>
+                    </div>
+
+                    <div class="qtdMusicas">
+                        <p>1158 músicas</p>
+                    </div>
+                </header>
+                <!-- CABEÇALHO DA LISTA DE MÚSICAS -->
+                    <div class="areaListaMusicas">
+                        <button id="btnPause">Pause</button>
+                        <div class="cabecalhoInfoMusicas">
+                            <p class="primeiroItem">TÍTULO</p>
+                            <p class="primeiroItem">ARTISTA</p>
+                            <p class="primeiroItem">ÁLBUM</p>
+                        </div>
+                <!-- LISTAS DE MÚSICAS -->
+                        <ul class="listaMusicas">
+                            <li>
+                                <p class="primeiroItem">Volver</p>
+                                <p class="primeiroItem">João Manô</p>
+                                <p class="primeiroItem">Volver</p>
+                            </li>
+                            <li>
+                                <p class="primeiroItem">Paciência</p>
+                                <p class="primeiroItem">João Manô</p>
+                                <p class="primeiroItem">Volver</p>
+                            </li>
+                            <li>
+                                <p class="primeiroItem">Temporais</p>
+                                <p class="primeiroItem">João Manô</p>
+                                <p class="primeiroItem">Volver</p>
+                            </li>
+                            <li>
+                                <p class="primeiroItem">Maturidade</p>
+                                <p class="primeiroItem">João Manô</p>
+                                <p class="primeiroItem">Volver</p>
+                            </li>
+                        </ul>
+                    </div>
+            </section>
+                <!-- PLAYER -->
+            <section class="areaPlayer">
+
+                <audio src="" id="saidaAudio"></audio>
+
+                <div class="infoMusicaAtual">
+                    <figure class="imagemAlbum">
+                        <img src="./src/img/volver.png" alt="Album">
+                        <figcaption>Legenda</figcaption>
+                    </figure>
+                    <div class="infoAlbum">
+                        <h2 id="nomeMusica">Paciência</h2>
+                        <p id="nomeArtista">João Manô</p>
+                    </div>
+                </div>
+
+                <div class="areaPlayerControles">
+                    <button id="btnControlPrev"></button>
+                    <button id="btnControlPlay"></button>
+                    <button id="btnControlNext"></button>
+                </div>
+
+                <div class="areaPlayerVolume">
+                <input type="range" value="1" step="0.1">
+                </div>
+
+            </section>
+
+        </main>
+
+        <script type="text/javascript" src="./src/js/script.js"></script>
+
+    </body>
+</html>
