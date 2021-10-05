@@ -73,6 +73,9 @@ main{
     justify-content: flex-end;
     align-items: center;
     float: right;
+    position: relative;
+    left: 75%;
+    top: -25%;
 }
 .user > img{
     margin-right: 20px;
@@ -84,8 +87,9 @@ main{
 /* QUANTIDADE DE MÚSICAS */
 
 .qtdMusicas{
-    left: 200px;
-    bottom: 200px;
+    position: relative;
+    right: 175px;
+    top: 110px;
 }
 .qtdMusicas > p{
     font-size: 28px;
