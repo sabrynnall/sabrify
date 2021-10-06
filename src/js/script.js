@@ -4,54 +4,62 @@ const baseMusicas = [
         'artist':'Northon Pinheiro',
         'path':'./src/audio/Carismatos.mp3',
         'album':'Alma Nua',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Motivos (Washer)',
         'artist':'João Manô',
         'path':'./src/audio/Motivos (Washer).mp3',
         'album':'Ecoar',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Paciência',
         'artist':'João Manô',
         'path':'./src/audio/Paciência.mp3',
         'album':'Volver',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Passa Tempo (feat. Ramon Souza)',
         'artist':'Julhin de Tia Lica',
         'path':'./src/audio/Passa Tempo (feat. Ramon Souza).mp3',
         'album':'Auto do Céu',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Passará',
         'artist':'Northon Pinheiro',
         'path':'./src/audio/Passará.mp3',
         'album':'Alma Nua',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Primeiro (feat. João Manô)',
         'artist':'Ana Heloysa',
         'path':'./src/audio/Primeiro - Ana Heloysa (feat. João Manô).mp3',
-        'album':'Primeiro (feat. João Manô)',
+        'album':'Primeiro',
+        'img':'./src/img/alma_nua',
     },
     {
         'name':'Temporais',
         'artist':'João Manô',
         'path':'./src/audio/Temporais.mp3',
         'album':'Volver',
+        'img':'./src/img/volver',
     }
 ];
 
 const listaMusicas = document.querySelector('.listaMusicas');
-
 const tagAudio = document.getElementById('saidaAudio');
 const primeiraMusica = baseMusicas[0];
 tagAudio.src = primeiraMusica.path;
+atualizaPlayer(baseMusicas[0].artist, baseMusicas[0].name, baseMusicas[0].img);
 
 const botaoPausar = document.getElementById('btnPause');
-
 const botaoPlay = document.getElementById('btnControlPlay')
+
+let musicaAtual = 0;
 
 function construirPlaylist(musica, musicaId) {
     const musicaElemento = document.createElement('li');
@@ -85,18 +93,79 @@ function tocarMusica(evento){
     const elementoClicado = evento.currentTarget;
 
     if(elementoClicado.tagName == 'LI'){
-    const musicaId = elementoClicado.dataset.id;
-    const musicaSelecionada = baseMusicas[musicaId];
+        const musicaId = elementoClicado.dataset.id;
+        const musicaSelecionada = baseMusicas[musicaId];
 
-    tagAudio.src = musicaSelecionada.path;
-    tagAudio.play();
-    } else {
+        tagAudio.src = musicaSelecionada.path;
+        musicaAtual = Number(musicaId);
         tagAudio.play();
-    }    
+        botaoPlay.classList.add('pause');
+        atualizaPlayer(baseMusicas[musicaAtual].artist, baseMusicas[musicaAtual].name, baseMusicas[musicaAtual].img);
+
+    } else {
+        if(tagAudio.paused) {
+            tagAudio.play();
+            botaoPlay.classList.add('pause');
+        } else {
+            tagAudio.pause();
+            botaoPlay.classList.remove('pause');
+    }
 }
 botaoPlay.addEventListener('click', tocarMusica)
 
 function pausarMusica(){
     tagAudio.pause();
+    botaoPlay.classList.remove('pause');
 }
 botaoPausar.addEventListener('click', pausarMusica);
+}
+
+function tocarProximaMusica(){
+    if(musicaAtual === baseMusicas.length - 1){
+        musicaAtual = 0
+    }else{
+        musicaAtual++
+    }
+
+    tagAudio.src = baseMusicas[musicaAtual].path
+    tagAudio.play()
+
+    let nomeArtista = baseMusicas[musicaAtual].artist;
+    let nomeMusica = baseMusicas[musicaAtual].name;
+    let fotoAlbum = baseMusicas[musicaAtual].img;
+    atualizaPlayer(nomeArtista, nomeMusica, fotoAlbum)
+    botaoPlay.classList.add('pause');
+}
+const btnControlNext = document.getElementById('btnControlNext');
+btnControlNext.addEventListener('click', tocarProximaMusica)
+
+function tocarMusicaAnterior(){
+    if(musicaAtual === 0){
+        musicaAtual = baseMusicas.length - 1
+    }else{
+        musicaAtual--
+    }
+
+    tagAudio.src = baseMusicas[musicaAtual].path
+    tagAudio.play()
+    atualizaPlayer(nomeArtista, nomeMusica, fotoAlbum)
+    botaoPlay.classList.add('pause');
+}
+const btnControlPrev = document.getElementById('btnControlPrev');
+btnControlPrev.addEventListener('click', tocarMusicaAnterior);
+
+const areaPlayerVolume = document.querySelector('.areaPlayerVolume input');
+
+areaPlayerVolume.addEventListener('input', function(){
+    tagAudio.volume = areaPlayerVolume.value;
+})
+
+function atualizaPlayer(nome, musica, foto){
+    const nomeMusica = document.getElementById('nomeMusica');
+    const nomeArtista = document.getElementById('nomeArtista');
+    const fotoAlbum = document.getElementById('fotoAlbum');
+
+    fotoAlbum.src = foto;
+    nomeMusica.innerText = musica;
+    nomeArtista.innerText = nome;
+}

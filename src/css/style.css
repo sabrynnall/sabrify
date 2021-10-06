@@ -43,11 +43,17 @@ main{
     color: #F1F1F1;
     display: flex;
     align-items: center;
+    border-radius: 7px;
+    padding: 8px 20px;
 }
 .listaLinks > li > a >img{
     width: 28px;
     margin-right: 20px;
 }
+.fav{
+    background-color: #CD3298;
+}
+
 
 /* SEÇÃO LISTA DE MÚSICAS */
 
@@ -61,7 +67,6 @@ main{
     background-position: center;
     background-repeat: no-repeat;
     height: 180px;
-    display: flex;
     flex-direction: relative;
     padding: 20px 80px;
 }
@@ -74,8 +79,8 @@ main{
     align-items: center;
     float: right;
     position: relative;
-    left: 75%;
-    top: -25%;
+    left: 0%;
+    top: 15%;
 }
 .user > img{
     margin-right: 20px;
@@ -88,8 +93,8 @@ main{
 
 .qtdMusicas{
     position: relative;
-    right: 175px;
-    top: 110px;
+    right: 10px;
+    top: 100px;
 }
 .qtdMusicas > p{
     font-size: 28px;
@@ -102,7 +107,7 @@ main{
     padding: 20px 80px;
 }
 #btnPause{
-    background-color: #FF48C1;
+    background-color: #CD3298;
     color: #F1F1F1;
     border: none;
     text-transform: uppercase;
@@ -140,7 +145,7 @@ main{
 .listaMusicas > li > .primeiroItem{
     width: 60%;
 }
-.listaMusicas > li > p{
+.listaMusicas> li > p{
     width: 25%;
 }
 
