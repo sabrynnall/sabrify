@@ -33,9 +33,6 @@ main{
     margin-bottom: 25px;
 }
 
-.menuNavegacao{}
-
-.listaLinks{}
 .listaLinks > li{
     margin-bottom: 17px;
 }
@@ -53,7 +50,6 @@ main{
 .fav{
     background-color: #CD3298;
 }
-
 
 /* SEÇÃO LISTA DE MÚSICAS */
 
@@ -169,20 +165,18 @@ main{
 .imagemAlbum{
     margin-right: 40px;
 }
-.imagemAlbum > img{}
+#fotoAlbum{
+    height: 100px;
+}
 .imagemAlbum > figcaption{
     display: none;
 }
-.infoAlbum{}
 .infoAlbum > h2{
     margin-bottom: 8px;
 }
-.infoAlbum > p{}
 
 /* PLAYER */
 
-.areaPlayerControles{
-}
 .areaPlayerControles > button{
     width: 31px;
     height: 31px;

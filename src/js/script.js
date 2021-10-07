@@ -1,54 +1,4 @@
-const baseMusicas = [
-    {
-        'name':'Carismatos',
-        'artist':'Northon Pinheiro',
-        'path':'./src/audio/Carismatos.mp3',
-        'album':'Alma Nua',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Motivos (Washer)',
-        'artist':'João Manô',
-        'path':'./src/audio/Motivos (Washer).mp3',
-        'album':'Ecoar',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Paciência',
-        'artist':'João Manô',
-        'path':'./src/audio/Paciência.mp3',
-        'album':'Volver',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Passa Tempo (feat. Ramon Souza)',
-        'artist':'Julhin de Tia Lica',
-        'path':'./src/audio/Passa Tempo (feat. Ramon Souza).mp3',
-        'album':'Auto do Céu',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Passará',
-        'artist':'Northon Pinheiro',
-        'path':'./src/audio/Passará.mp3',
-        'album':'Alma Nua',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Primeiro (feat. João Manô)',
-        'artist':'Ana Heloysa',
-        'path':'./src/audio/Primeiro - Ana Heloysa (feat. João Manô).mp3',
-        'album':'Primeiro',
-        'img':'./src/img/alma_nua',
-    },
-    {
-        'name':'Temporais',
-        'artist':'João Manô',
-        'path':'./src/audio/Temporais.mp3',
-        'album':'Volver',
-        'img':'./src/img/volver',
-    }
-];
+import baseMusicas from "./baseMusicas.js";
 
 const listaMusicas = document.querySelector('.listaMusicas');
 const tagAudio = document.getElementById('saidaAudio');
@@ -92,7 +42,7 @@ function tocarMusica(evento){
 
     const elementoClicado = evento.currentTarget;
 
-    if(elementoClicado.tagName == 'LI'){
+    if(elementoClicado.tagName == 'li'){
         const musicaId = elementoClicado.dataset.id;
         const musicaSelecionada = baseMusicas[musicaId];
 
@@ -148,6 +98,10 @@ function tocarMusicaAnterior(){
 
     tagAudio.src = baseMusicas[musicaAtual].path
     tagAudio.play()
+
+    let nomeArtista = baseMusicas[musicaAtual].artist;
+    let nomeMusica = baseMusicas[musicaAtual].name;
+    let fotoAlbum = baseMusicas[musicaAtual].img;
     atualizaPlayer(nomeArtista, nomeMusica, fotoAlbum)
     botaoPlay.classList.add('pause');
 }
