@@ -41,9 +41,9 @@ for(let contador = 0; contador < baseMusicas.length; contador++) {
 function tocarMusica(evento){
 
     const elementoClicado = evento.currentTarget;
-
-    if(elementoClicado.tagName == 'li'){
+    if(elementoClicado.tagName.toLowerCase() === 'li'){
         const musicaId = elementoClicado.dataset.id;
+        
         const musicaSelecionada = baseMusicas[musicaId];
 
         tagAudio.src = musicaSelecionada.path;

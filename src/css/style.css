@@ -111,6 +111,7 @@ main{
     border-radius: 7px;
     font-size: 18px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 /* CABEÇALHO INFO MÚSICAS */
@@ -143,6 +144,7 @@ main{
 }
 .listaMusicas> li > p{
     width: 25%;
+    cursor: pointer;
 }
 
 /* SEÇÃO DO PLAYER */
@@ -185,6 +187,7 @@ main{
     background-position: center;
     background-size: 23px;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 #btnControlPrev{
